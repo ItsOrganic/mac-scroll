@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "NeuralAI - Transform Your Business with AI",
   description:
     "Harness the power of artificial intelligence to automate workflows, generate insights, and accelerate your growth like never before.",
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({

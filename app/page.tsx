@@ -3,40 +3,22 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Check, Zap, Brain, Sparkles, ArrowRight, Star } from "lucide-react"
+import NavbarDemo from "@/components/resizable-navbar-demo";
+import GridSmallBackgroundDemo from "@/components/ui/grid-small-background-demo"
+
+
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen text-white">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-2">
-              <Brain className="h-8 w-8 text-purple-500" />
-              <span className="text-xl font-bold">NeuralAI</span>
-            </div>
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-gray-300 hover:text-white transition-colors">
-                Features
-              </a>
-              <a href="#pricing" className="text-gray-300 hover:text-white transition-colors">
-                Pricing
-              </a>
-              <a href="#testimonials" className="text-gray-300 hover:text-white transition-colors">
-                Testimonials
-              </a>
-              <Button variant="outline" className="border-gray-700 text-white hover:bg-gray-800 bg-transparent">
-                Sign In
-              </Button>
-              <Button className="bg-purple-600 hover:bg-purple-700">Get Started</Button>
-            </div>
-          </div>
-        </div>
+      <nav className="fixed top-0 w-full z-50 ">
+        <NavbarDemo />
       </nav>
 
       {/* Hero Section with MacBook */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-blue-900/20" />
+        <GridSmallBackgroundDemo />
         <div className="relative">
           <MacbookScroll
             title={
