@@ -1,0 +1,144 @@
+{
+    "id": "exec_123456789",
+    "workflowId": "sample-slack-gmail-workflow",
+    "status": "completed",
+    "startedAt": "2024-01-15T14:30:00Z",
+    "completedAt": "2024-01-15T14:30:05Z",
+    "duration": 5000,
+    "triggerData": {
+        "message": {
+            "text": "URGENT: Server is down! Need immediate attention!",
+            "user": "john.doe",
+            "channel": "#general",
+            "timestamp": "2024-01-15T14:30:00Z",
+            "thread_ts": null
+        },
+        "event": "message",
+        "team": "T123456789"
+    },
+    "steps": [
+        {
+            "id": "step_exec_1",
+            "stepId": "step_1",
+            "status": "completed",
+            "startedAt": "2024-01-15T14:30:00Z",
+            "completedAt": "2024-01-15T14:30:01Z",
+            "duration": 1000,
+            "input": {
+                "message": {
+                    "text": "URGENT: Server is down! Need immediate attention!",
+                    "user": "john.doe",
+                    "channel": "#general",
+                    "timestamp": "2024-01-15T14:30:00Z"
+                }
+            },
+            "output": {
+                "triggered": true,
+                "message": {
+                    "text": "URGENT: Server is down! Need immediate attention!",
+                    "user": "john.doe",
+                    "channel": "#general",
+                    "timestamp": "2024-01-15T14:30:00Z"
+                }
+            },
+            "retryCount": 0
+        },
+        {
+            "id": "step_exec_2",
+            "stepId": "step_2",
+            "status": "completed",
+            "startedAt": "2024-01-15T14:30:01Z",
+            "completedAt": "2024-01-15T14:30:02Z",
+            "duration": 1000,
+            "input": {
+                "message": {
+                    "text": "URGENT: Server is down! Need immediate attention!",
+                    "user": "john.doe",
+                    "channel": "#general",
+                    "timestamp": "2024-01-15T14:30:00Z"
+                }
+            },
+            "output": {
+                "conditionResult": true,
+                "condition": {
+                    "field": "message.text",
+                    "operator": "contains",
+                    "value": "urgent"
+                },
+                "nextStep": "step_3"
+            },
+            "retryCount": 0
+        },
+        {
+            "id": "step_exec_3",
+            "stepId": "step_3",
+            "status": "completed",
+            "startedAt": "2024-01-15T14:30:02Z",
+            "completedAt": "2024-01-15T14:30:03Z",
+            "duration": 1000,
+            "input": {
+                "message": {
+                    "text": "URGENT: Server is down! Need immediate attention!",
+                    "user": "john.doe",
+                    "channel": "#general",
+                    "timestamp": "2024-01-15T14:30:00Z"
+                }
+            },
+            "output": {
+                "summary": "Urgent server outage reported by john.doe in #general channel. Immediate attention required.",
+                "originalLength": 58,
+                "transformation": "summarize"
+            },
+            "retryCount": 0
+        },
+        {
+            "id": "step_exec_4",
+            "stepId": "step_5",
+            "status": "completed",
+            "startedAt": "2024-01-15T14:30:03Z",
+            "completedAt": "2024-01-15T14:30:05Z",
+            "duration": 2000,
+            "input": {
+                "summary": "Urgent server outage reported by john.doe in #general channel. Immediate attention required.",
+                "message": {
+                    "text": "URGENT: Server is down! Need immediate attention!",
+                    "user": "john.doe",
+                    "channel": "#general",
+                    "timestamp": "2024-01-15T14:30:00Z"
+                }
+            },
+            "output": {
+                "emailSent": true,
+                "messageId": "msg_abc123def456",
+                "recipients": [
+                    "admin@company.com",
+                    "team@company.com"
+                ],
+                "subject": "🚨 Urgent Slack Message: #general",
+                "body": "Urgent server outage reported by john.doe in #general channel. Immediate attention required.\n\nOriginal message: URGENT: Server is down! Need immediate attention!\nFrom: john.doe\nChannel: #general\nTime: 2024-01-15T14:30:00Z"
+            },
+            "retryCount": 0
+        }
+    ],
+    "data": {
+        "finalResult": {
+            "emailSent": true,
+            "messageId": "msg_abc123def456",
+            "recipients": [
+                "admin@company.com",
+                "team@company.com"
+            ],
+            "summary": "Urgent server outage reported by john.doe in #general channel. Immediate attention required."
+        }
+    },
+    "metrics": {
+        "totalSteps": 4,
+        "completedSteps": 4,
+        "failedSteps": 0,
+        "skippedSteps": 0,
+        "totalDuration": 5000,
+        "averageStepDuration": 1250,
+        "successRate": 100
+    },
+    "error": null
+}

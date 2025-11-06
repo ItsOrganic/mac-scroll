@@ -1,0 +1,135 @@
+{
+    "id": "sample-slack-gmail-workflow",
+    "name": "Slack to Gmail Notifications",
+    "description": "Automatically send email notifications when urgent messages are posted in Slack",
+    "version": "1.0.0",
+    "userId": "user_123",
+    "teamId": "team_456",
+    "isActive": true,
+    "createdAt": "2024-01-15T10:00:00Z",
+    "updatedAt": "2024-01-15T10:00:00Z",
+    "executionCount": 0,
+    "lastExecutedAt": null,
+    "steps": [
+        {
+            "id": "step_1",
+            "type": "trigger",
+            "name": "New Slack Message",
+            "description": "Trigger when a new message is posted in #general channel",
+            "config": {
+                "service": "slack",
+                "trigger": "new_message",
+                "channel": "#general",
+                "keywords": [
+                    "urgent",
+                    "important",
+                    "asap"
+                ],
+                "webhookUrl": "https://api.concatinate.com/webhooks/slack/123"
+            },
+            "nextSteps": [
+                "step_2"
+            ]
+        },
+        {
+            "id": "step_2",
+            "type": "condition",
+            "name": "Check Message Priority",
+            "description": "Check if message contains urgent keywords",
+            "config": {
+                "condition": {
+                    "field": "message.text",
+                    "operator": "contains",
+                    "value": "urgent"
+                }
+            },
+            "nextSteps": [
+                "step_3",
+                "step_4"
+            ]
+        },
+        {
+            "id": "step_3",
+            "type": "transform",
+            "name": "Summarize Message",
+            "description": "Summarize the message content for email",
+            "config": {
+                "service": "ai",
+                "transformation": "summarize",
+                "maxLength": 200,
+                "includeMetadata": true
+            },
+            "nextSteps": [
+                "step_5"
+            ]
+        },
+        {
+            "id": "step_4",
+            "type": "transform",
+            "name": "Extract Keywords",
+            "description": "Extract important keywords from the message",
+            "config": {
+                "service": "ai",
+                "transformation": "extract_keywords",
+                "maxKeywords": 10
+            },
+            "nextSteps": [
+                "step_5"
+            ]
+        },
+        {
+            "id": "step_5",
+            "type": "action",
+            "name": "Send Gmail Notification",
+            "description": "Send email notification to admin team",
+            "config": {
+                "service": "gmail",
+                "action": "send_email",
+                "to": "admin@company.com",
+                "cc": "team@company.com",
+                "subject": "🚨 Urgent Slack Message: {{channel}}",
+                "body": "{{summary}}\n\nOriginal message: {{message.text}}\nFrom: {{message.user}}\nChannel: {{channel}}\nTime: {{timestamp}}",
+                "priority": "high"
+            }
+        }
+    ],
+    "triggers": [
+        {
+            "id": "slack_webhook_trigger",
+            "name": "Slack Webhook",
+            "description": "Webhook endpoint for Slack message events",
+            "service": "slack",
+            "config": {
+                "channel": "#general",
+                "keywords": [
+                    "urgent",
+                    "important",
+                    "asap"
+                ],
+                "webhookUrl": "https://api.concatinate.com/webhooks/slack/123"
+            },
+            "webhookUrl": "https://api.concatinate.com/webhooks/slack/123"
+        }
+    ],
+    "variables": {
+        "admin_email": "admin@company.com",
+        "team_email": "team@company.com",
+        "max_summary_length": 200,
+        "urgent_keywords": [
+            "urgent",
+            "important",
+            "asap",
+            "critical"
+        ]
+    },
+    "settings": {
+        "retryPolicy": {
+            "maxRetries": 3,
+            "retryDelay": 5000,
+            "backoffMultiplier": 2
+        },
+        "timeout": 30000,
+        "concurrency": 1,
+        "errorHandling": "continue"
+    }
+}
