@@ -58,10 +58,10 @@ export default function Home() {
                   <Sparkles className="w-4 h-4 mr-2" />
                   AI-Powered Workflow Automation
                 </Badge> */}
-                <h1 className={`text-4xl md:text-6xl font-bold leading-tight ${isDark ? 'text-white' : 'text-zinc-900'}`}>
+                <h1 className={`text-4xl md:text-6xl font-bold leading-tight p-4 ${isDark ? 'text-white' : 'text-zinc-900'}`}>
                   Automate Everything
-                  <br />
-                  <span className="bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent">with AI</span>
+                  {/* <br /> */}
+                  <span className="bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent"> with AI</span>
                 </h1>
                 <p className={`text-lg md:text-xl max-w-2xl mx-auto leading-relaxed ${isDark ? 'text-zinc-300' : 'text-zinc-600'}`}>
                   Connect your apps, automate workflows, and transform data with AI-powered integrations.
@@ -98,11 +98,11 @@ export default function Home() {
                 </div>
               </div>
             }
-            badge={
-              <div className="bg-gradient-to-r from-emerald-600 to-teal-600 p-3 rounded-full shadow-lg shadow-emerald-600/25">
-                <Brain className="h-8 w-8 text-white" />
-              </div>
-            }
+            // badge={
+            //   <div className="bg-gradient-to-r from-emerald-600 to-teal-600 p-3 rounded-full shadow-lg shadow-emerald-600/25">
+            //     <Brain className="h-8 w-8 text-white" />
+            //   </div>
+            // }
             src="/placeholder.svg?height=600&width=1200"
             showGradient={false}
           />
@@ -125,136 +125,210 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section - Modern Bento Grid */}
-      <section id="features" className={`py-24 ${isDark ? 'bg-zinc-950' : 'bg-white'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Features Section - Aligned with Hero Theme */}
+      <section
+        id="features"
+        className={`relative py-28 ${isDark
+          ? "bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950"
+          : "bg-gradient-to-b from-white via-emerald-50/30 to-white"
+          } overflow-hidden`}
+      >
+        {/* Decorative background gradient glow */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60rem] h-[60rem] bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.08),transparent_70%)]"></div>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <Badge className={`${isDark ? 'bg-zinc-800/50 text-zinc-200 border-zinc-700/50' : 'bg-zinc-100 text-zinc-800 border-zinc-200/50'} mb-4 backdrop-blur-sm`}>
+            <Badge
+              className={`${isDark
+                ? "bg-emerald-500/10 text-emerald-300 border-emerald-600/20"
+                : "bg-emerald-100 text-emerald-800 border-emerald-200"
+                } mb-4 backdrop-blur-sm`}
+            >
               <Rocket className="w-4 h-4 mr-2" />
               Powerful Features
             </Badge>
-            <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${isDark ? 'text-white' : 'text-zinc-900'}`}>
+            <h2
+              className={`text-4xl md:text-5xl font-bold mb-6 ${isDark ? "text-white" : "text-zinc-900"
+                }`}
+            >
               Everything You Need to Automate
             </h2>
-            <p className={`text-xl max-w-3xl mx-auto leading-relaxed ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
-              From simple triggers to complex AI transformations, Concatinate provides all the tools you need to build powerful automations.
+            <p
+              className={`text-xl max-w-3xl mx-auto leading-relaxed ${isDark ? "text-zinc-400" : "text-zinc-600"
+                }`}
+            >
+              From simple triggers to complex AI transformations, Concatinate gives
+              you the tools to build intelligent automations — fast.
             </p>
           </div>
 
           {/* Modern Bento Grid Layout */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Large feature card */}
-            <Card className={`lg:col-span-2 lg:row-span-2 ${isDark ? 'bg-zinc-900/50 border-zinc-800/50' : 'bg-zinc-50/50 border-zinc-200/50'} hover:border-violet-500/50 transition-all duration-300 backdrop-blur-sm`}>
+            <Card
+              className={`lg:col-span-2 lg:row-span-2 backdrop-blur-xl transition-all duration-300 border ${isDark
+                ? "bg-zinc-900/60 border-emerald-900/30 hover:border-emerald-600/40"
+                : "bg-white/70 border-emerald-200/60 hover:border-emerald-400/60"
+                } shadow-md hover:shadow-emerald-500/10`}
+            >
               <CardHeader className="pb-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-violet-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center mb-6 backdrop-blur-sm">
-                  <Bot className="h-8 w-8 text-violet-500" />
+                <div className="w-16 h-16 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-2xl flex items-center justify-center mb-6">
+                  <Bot className="h-8 w-8 text-emerald-500" />
                 </div>
-                <CardTitle className={`text-2xl ${isDark ? 'text-white' : 'text-zinc-900'} mb-4`}>AI Workflow Builder</CardTitle>
-                <CardDescription className={`text-lg leading-relaxed ${isDark ? 'text-zinc-300' : 'text-zinc-600'}`}>
-                  Describe your workflow in plain English and let AI convert it to structured automation with intelligent recommendations.
-                  No coding required - just tell us what you want to automate.
+                <CardTitle
+                  className={`text-2xl mb-4 ${isDark ? "text-white" : "text-zinc-900"
+                    }`}
+                >
+                  AI Workflow Builder
+                </CardTitle>
+                <CardDescription
+                  className={`text-lg leading-relaxed ${isDark ? "text-zinc-300" : "text-zinc-600"
+                    }`}
+                >
+                  Describe your workflow in plain English — and let AI turn it into a
+                  working automation. Smart suggestions, zero code.
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="flex items-center text-violet-500 text-sm font-medium">
+                <div className="flex items-center text-emerald-500 text-sm font-medium">
                   Learn more
                   <ChevronRight className="h-4 w-4 ml-1" />
                 </div>
               </CardContent>
             </Card>
 
-            {/* Medium feature cards */}
-            <Card className={`${isDark ? 'bg-zinc-900/50 border-zinc-800/50' : 'bg-zinc-50/50 border-zinc-200/50'} hover:border-violet-500/50 transition-all duration-300 backdrop-blur-sm`}>
-              <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-xl flex items-center justify-center mb-4 backdrop-blur-sm">
-                  <Globe className="h-6 w-6 text-emerald-500" />
-                </div>
-                <CardTitle className={`text-xl ${isDark ? 'text-white' : 'text-zinc-900'} mb-2`}>10+ Integrations</CardTitle>
-                <CardDescription className={`${isDark ? 'text-zinc-300' : 'text-zinc-600'}`}>
-                  Connect Slack, Gmail, Notion, Google Sheets, and more with our robust API.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className={`${isDark ? 'bg-zinc-900/50 border-zinc-800/50' : 'bg-zinc-50/50 border-zinc-200/50'} hover:border-violet-500/50 transition-all duration-300 backdrop-blur-sm`}>
-              <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center mb-4 backdrop-blur-sm">
-                  <Sparkles className="h-6 w-6 text-purple-500" />
-                </div>
-                <CardTitle className={`text-xl ${isDark ? 'text-white' : 'text-zinc-900'} mb-2`}>Smart Transformations</CardTitle>
-                <CardDescription className={`${isDark ? 'text-zinc-300' : 'text-zinc-600'}`}>
-                  AI-powered data processing: summarize, classify, extract keywords, and more.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className={`${isDark ? 'bg-zinc-900/50 border-zinc-800/50' : 'bg-zinc-50/50 border-zinc-200/50'} hover:border-violet-500/50 transition-all duration-300 backdrop-blur-sm`}>
-              <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-xl flex items-center justify-center mb-4 backdrop-blur-sm">
-                  <Workflow className="h-6 w-6 text-orange-500" />
-                </div>
-                <CardTitle className={`text-xl ${isDark ? 'text-white' : 'text-zinc-900'} mb-2`}>Conditional Logic</CardTitle>
-                <CardDescription className={`${isDark ? 'text-zinc-300' : 'text-zinc-600'}`}>
-                  Build complex workflows with if/else conditions and advanced branching.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className={`${isDark ? 'bg-zinc-900/50 border-zinc-800/50' : 'bg-zinc-50/50 border-zinc-200/50'} hover:border-violet-500/50 transition-all duration-300 backdrop-blur-sm`}>
-              <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-xl flex items-center justify-center mb-4 backdrop-blur-sm">
-                  <BarChart3 className="h-6 w-6 text-blue-500" />
-                </div>
-                <CardTitle className={`text-xl ${isDark ? 'text-white' : 'text-zinc-900'} mb-2`}>Real-time Analytics</CardTitle>
-                <CardDescription className={`${isDark ? 'text-zinc-300' : 'text-zinc-600'}`}>
-                  Track executions, view logs, and get actionable insights.
-                </CardDescription>
-              </CardHeader>
-            </Card>
+            {/* Other feature cards */}
+            {[
+              {
+                icon: <Globe className="h-6 w-6 text-emerald-500" />,
+                title: "10+ Integrations",
+                desc: "Connect Slack, Gmail, Notion, Sheets, and more.",
+                gradient: "from-emerald-500/20 to-teal-500/20",
+              },
+              {
+                icon: <Sparkles className="h-6 w-6 text-purple-500" />,
+                title: "Smart Transformations",
+                desc: "AI-powered summarization, extraction, classification, and more.",
+                gradient: "from-purple-500/20 to-pink-500/20",
+              },
+              {
+                icon: <Workflow className="h-6 w-6 text-orange-500" />,
+                title: "Conditional Logic",
+                desc: "Add dynamic branches and complex logic with ease.",
+                gradient: "from-orange-500/20 to-red-500/20",
+              },
+              {
+                icon: <BarChart3 className="h-6 w-6 text-blue-500" />,
+                title: "Real-time Analytics",
+                desc: "View logs, track runs, and monitor automation health.",
+                gradient: "from-blue-500/20 to-cyan-500/20",
+              },
+            ].map((f, i) => (
+              <Card
+                key={i}
+                className={`backdrop-blur-xl transition-all duration-300 border ${isDark
+                  ? "bg-zinc-900/60 border-zinc-800 hover:border-emerald-700/40"
+                  : "bg-white/70 border-zinc-200 hover:border-emerald-300/60"
+                  }`}
+              >
+                <CardHeader className="pb-4">
+                  <div
+                    className={`w-12 h-12 bg-gradient-to-br ${f.gradient} rounded-xl flex items-center justify-center mb-4`}
+                  >
+                    {f.icon}
+                  </div>
+                  <CardTitle
+                    className={`text-xl mb-2 ${isDark ? "text-white" : "text-zinc-900"
+                      }`}
+                  >
+                    {f.title}
+                  </CardTitle>
+                  <CardDescription
+                    className={`${isDark ? "text-zinc-300" : "text-zinc-600"}`}
+                  >
+                    {f.desc}
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Integrations Section - Modern Design */}
-      <section className={`py-24 ${isDark ? 'bg-zinc-950/50' : 'bg-white'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Integrations Section - Unified with Theme */}
+      <section
+        className={`relative py-28 ${isDark
+          ? "bg-gradient-to-b from-zinc-950 via-zinc-900/80 to-zinc-950"
+          : "bg-gradient-to-b from-white via-emerald-50/20 to-white"
+          }`}
+      >
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60rem] h-[60rem] bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.05),transparent_70%)]"></div>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <Badge className={`${isDark ? 'bg-zinc-800/50 text-zinc-200 border-zinc-700/50' : 'bg-zinc-100 text-zinc-800 border-zinc-200/50'} mb-4 backdrop-blur-sm`}>
+            <Badge
+              className={`${isDark
+                ? "bg-emerald-500/10 text-emerald-300 border-emerald-600/20"
+                : "bg-emerald-100 text-emerald-800 border-emerald-200"
+                } mb-4 backdrop-blur-sm`}
+            >
               <Globe className="w-4 h-4 mr-2" />
               10+ Integrations
             </Badge>
-            <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${isDark ? 'text-white' : 'text-zinc-900'}`}>
+            <h2
+              className={`text-4xl md:text-5xl font-bold mb-6 ${isDark ? "text-white" : "text-zinc-900"
+                }`}
+            >
               Connect Your Favorite Apps
             </h2>
-            <p className={`text-xl max-w-3xl mx-auto ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
-              Seamlessly integrate with the tools you already use. From communication to productivity, we've got you covered.
+            <p
+              className={`text-xl max-w-3xl mx-auto leading-relaxed ${isDark ? "text-zinc-400" : "text-zinc-600"
+                }`}
+            >
+              Seamlessly integrate with the tools you already use — from productivity
+              to communication, all in one place.
             </p>
           </div>
 
-          {/* Modern Integration Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          {/* Integration Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {integrations.map((integration, index) => (
-              <div key={index} className="group">
-                <Card className={`${isDark ? 'bg-zinc-900/50 border-zinc-800/50' : 'bg-white/50 border-zinc-200/50'} hover:border-violet-500/50 transition-all duration-300 p-8 backdrop-blur-sm`}>
-                  <CardContent className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                      <img
-                        src={integration.logo}
-                        alt={integration.name}
-                        className="w-12 h-12 object-contain"
-                      />
-                    </div>
-                    <div className={`font-medium ${isDark ? 'text-zinc-200' : 'text-zinc-700'}`}>{integration.name}</div>
-                  </CardContent>
-                </Card>
-              </div>
+              <Card
+                key={index}
+                className={`group p-8 backdrop-blur-xl border transition-all duration-300 ${isDark
+                  ? "bg-zinc-900/60 border-zinc-800 hover:border-emerald-600/40"
+                  : "bg-white/70 border-zinc-200 hover:border-emerald-400/60"
+                  }`}
+              >
+                <CardContent className="text-center">
+                  <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                    <img
+                      src={integration.logo}
+                      alt={integration.name}
+                      className="w-12 h-12 object-contain group-hover:scale-110 transition-transform"
+                    />
+                  </div>
+                  <div
+                    className={`font-medium transition-colors ${isDark
+                      ? "text-zinc-300 group-hover:text-emerald-400"
+                      : "text-zinc-700 group-hover:text-emerald-600"
+                      }`}
+                  >
+                    {integration.name}
+                  </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
       </section>
 
       {/* How It Works Section */}
-      <section className={`py-24 ${isDark ? 'bg-zinc-900' : 'bg-zinc-50'}`}>
+      {/* <section className={`py-24 ${isDark ? 'bg-zinc-900' : 'bg-zinc-50'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <Badge className={`${isDark ? 'bg-zinc-800/50 text-zinc-200 border-zinc-700/50' : 'bg-zinc-100 text-zinc-800 border-zinc-200/50'} mb-4 backdrop-blur-sm`}>
@@ -286,7 +360,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Pricing Section */}
       <section id="pricing" className={`py-24 ${isDark ? 'bg-zinc-900/50' : 'bg-zinc-50'}`}>
@@ -353,7 +427,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA Section
       <section className="py-24 bg-gradient-to-r from-violet-600 via-purple-600 to-fuchsia-600 relative overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
@@ -378,89 +452,184 @@ export default function Home() {
             </Button>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Footer */}
-      <footer className={`py-16 border-t ${isDark ? 'bg-zinc-950 border-zinc-800' : 'bg-white border-zinc-200'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-6">
-                <div className="w-10 h-10 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-lg flex items-center justify-center">
-                  <Brain className="h-6 w-6 text-white" />
+      <footer
+        className={`relative py-16 border-t ${isDark ? 'bg-zinc-950 border-zinc-800' : 'bg-white border-zinc-200'
+          }`}
+      >
+        {/* COMING SOON overlay */}
+        <div className="absolute inset-0 flex items-center justify-center z-10">
+          <h1
+            className={`text-5xl md:text-7xl font-extrabold tracking-tight ${isDark ? 'text-zinc-800' : 'text-zinc-200'
+              } opacity-70 select-none`}
+          >
+            COMING SOON
+          </h1>
+        </div>
+
+        <div className="relative z-0 opacity-40 pointer-events-none">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid md:grid-cols-4 gap-8">
+              {/* Brand & Description */}
+              <div>
+                <div className="flex items-center space-x-2 mb-6">
+                  {/* New Logo */}
+                  <div className="w-10 h-10 bg-gradient-to-r from-emerald-600 to-teal-500 rounded-lg flex items-center justify-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="white"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="w-6 h-6"
+                    >
+                      <path d="M4 12a8 8 0 0 1 8-8" />
+                      <path d="M20 12a8 8 0 0 1-8 8" />
+                      <circle cx="12" cy="12" r="2" />
+                    </svg>
+                  </div>
+                  <span className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-500 bg-clip-text text-transparent">
+                    Concatinate
+                  </span>
                 </div>
-                <span className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">Concatinate</span>
+                <p
+                  className={`leading-relaxed mb-6 ${isDark ? 'text-zinc-400' : 'text-zinc-600'
+                    }`}
+                >
+                  Connecting apps, automating workflows, and transforming data with
+                  AI-powered integrations.
+                </p>
+
+                {/* Socials (inactive) */}
+                <div className="flex space-x-4">
+                  <div
+                    className={`w-10 h-10 rounded-lg flex items-center justify-center ${isDark ? 'bg-zinc-800' : 'bg-zinc-100'
+                      }`}
+                  >
+                    <span className="text-zinc-500">📧</span>
+                  </div>
+                  <div
+                    className={`w-10 h-10 rounded-lg flex items-center justify-center ${isDark ? 'bg-zinc-800' : 'bg-zinc-100'
+                      }`}
+                  >
+                    <span className="text-zinc-500">🐦</span>
+                  </div>
+                  <div
+                    className={`w-10 h-10 rounded-lg flex items-center justify-center ${isDark ? 'bg-zinc-800' : 'bg-zinc-100'
+                      }`}
+                  >
+                    <span className="text-zinc-500">💼</span>
+                  </div>
+                </div>
               </div>
-              <p className={`leading-relaxed mb-6 ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
-                Connecting apps, automating workflows, and transforming data with AI-powered integrations.
+
+              {/* Product Links */}
+              <div>
+                <h3
+                  className={`font-semibold mb-6 text-lg ${isDark ? 'text-white' : 'text-zinc-900'
+                    }`}
+                >
+                  Product
+                </h3>
+                <ul className="space-y-3">
+                  {footerLinks.product.map((link, index) => (
+                    <li key={index}>
+                      <span
+                        className={`transition-opacity ${isDark ? 'text-zinc-400' : 'text-zinc-600'
+                          }`}
+                      >
+                        {link}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Company Links */}
+              <div>
+                <h3
+                  className={`font-semibold mb-6 text-lg ${isDark ? 'text-white' : 'text-zinc-900'
+                    }`}
+                >
+                  Company
+                </h3>
+                <ul className="space-y-3">
+                  {footerLinks.company.map((link, index) => (
+                    <li key={index}>
+                      <span
+                        className={`transition-opacity ${isDark ? 'text-zinc-400' : 'text-zinc-600'
+                          }`}
+                      >
+                        {link}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Support Links */}
+              <div>
+                <h3
+                  className={`font-semibold mb-6 text-lg ${isDark ? 'text-white' : 'text-zinc-900'
+                    }`}
+                >
+                  Support
+                </h3>
+                <ul className="space-y-3">
+                  {footerLinks.support.map((link, index) => (
+                    <li key={index}>
+                      <span
+                        className={`transition-opacity ${isDark ? 'text-zinc-400' : 'text-zinc-600'
+                          }`}
+                      >
+                        {link}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Bottom Bar */}
+            <div
+              className={`border-t mt-12 pt-8 flex flex-col md:flex-row justify-between items-center ${isDark ? 'border-zinc-800' : 'border-zinc-200'
+                }`}
+            >
+              <p
+                className={`text-sm ${isDark ? 'text-zinc-400' : 'text-zinc-600'
+                  }`}
+              >
+                &copy; 2024 Concatinate. All rights reserved.
               </p>
-              <div className="flex space-x-4">
-                <div className={`w-10 h-10 rounded-lg flex items-center justify-center hover:opacity-80 transition-opacity cursor-pointer ${isDark ? 'bg-zinc-800' : 'bg-zinc-100'}`}>
-                  <span className="text-zinc-500">📧</span>
-                </div>
-                <div className={`w-10 h-10 rounded-lg flex items-center justify-center hover:opacity-80 transition-opacity cursor-pointer ${isDark ? 'bg-zinc-800' : 'bg-zinc-100'}`}>
-                  <span className="text-zinc-500">🐦</span>
-                </div>
-                <div className={`w-10 h-10 rounded-lg flex items-center justify-center hover:opacity-80 transition-opacity cursor-pointer ${isDark ? 'bg-zinc-800' : 'bg-zinc-100'}`}>
-                  <span className="text-zinc-500">💼</span>
-                </div>
+              <div className="flex space-x-6 mt-4 md:mt-0">
+                <span
+                  className={`text-sm ${isDark ? 'text-zinc-400' : 'text-zinc-600'
+                    }`}
+                >
+                  Privacy Policy
+                </span>
+                <span
+                  className={`text-sm ${isDark ? 'text-zinc-400' : 'text-zinc-600'
+                    }`}
+                >
+                  Terms of Service
+                </span>
+                <span
+                  className={`text-sm ${isDark ? 'text-zinc-400' : 'text-zinc-600'
+                    }`}
+                >
+                  Cookie Policy
+                </span>
               </div>
-            </div>
-            <div>
-              <h3 className={`font-semibold mb-6 text-lg ${isDark ? 'text-white' : 'text-zinc-900'}`}>Product</h3>
-              <ul className="space-y-3">
-                {footerLinks.product.map((link, index) => (
-                  <li key={index}>
-                    <a href="#" className={`hover:opacity-80 transition-opacity ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className={`font-semibold mb-6 text-lg ${isDark ? 'text-white' : 'text-zinc-900'}`}>Company</h3>
-              <ul className="space-y-3">
-                {footerLinks.company.map((link, index) => (
-                  <li key={index}>
-                    <a href="#" className={`hover:opacity-80 transition-opacity ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className={`font-semibold mb-6 text-lg ${isDark ? 'text-white' : 'text-zinc-900'}`}>Support</h3>
-              <ul className="space-y-3">
-                {footerLinks.support.map((link, index) => (
-                  <li key={index}>
-                    <a href="#" className={`hover:opacity-80 transition-opacity ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <div className={`border-t mt-12 pt-8 flex flex-col md:flex-row justify-between items-center ${isDark ? 'border-zinc-800' : 'border-zinc-200'}`}>
-            <p className={`text-sm ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
-              &copy; 2024 Concatinate. All rights reserved.
-            </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className={`hover:opacity-80 transition-opacity text-sm ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
-                Privacy Policy
-              </a>
-              <a href="#" className={`hover:opacity-80 transition-opacity text-sm ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
-                Terms of Service
-              </a>
-              <a href="#" className={`hover:opacity-80 transition-opacity text-sm ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
-                Cookie Policy
-              </a>
             </div>
           </div>
         </div>
       </footer>
+
 
       {/* Theme Toggle Button */}
       <button
@@ -503,12 +672,12 @@ const integrations = [
   { name: "Slack", logo: "https://a.slack-edge.com/80588/marketing/img/icons/icon_slack_hash_colored.png" },
   { name: "Gmail", logo: "https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico" },
   { name: "Notion", logo: "https://www.notion.so/images/logo-ios.png" },
-  { name: "Google Sheets", logo: "https://ssl.gstatic.com/docs/spreadsheets/favicon_qp2.png" },
+  // { name: "Google Sheets", logo: "https://ssl.gstatic.com/docs/spreadsheets/favicon_qp2.png" },
   { name: "Trello", logo: "https://trello.com/favicon.ico" },
   { name: "Salesforce", logo: "https://www.salesforce.com/favicon.ico" },
   { name: "HubSpot", logo: "https://www.hubspot.com/favicon.ico" },
-  { name: "Airtable", logo: "https://static.airtable.com/images/favicon.ico" },
-  { name: "Discord", logo: "https://discord.com/assets/847541504914fd33810e70a0ea73177e.ico" },
+  // { name: "Airtable", logo: "https://static.airtable.com/images/favicon.ico" },
+  { name: "Discord", logo: "https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/66e3d80db9971f10a9757c99_Symbol.svg" },
   { name: "GitHub", logo: "https://github.com/favicon.ico" },
 ]
 
